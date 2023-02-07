@@ -1,3 +1,4 @@
+using Interns.Controllers;
 using Newtonsoft.Json;
 
 namespace Interns.Models;
