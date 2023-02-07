@@ -14,4 +14,11 @@
     <PackageReference Include="System.CommandLine.DragonFruit" Version="0.4.0-alpha.22272.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\Deserialization\Csv\" />
+    <Folder Include="Controllers\Deserialization\Json\" />
+    <Folder Include="Handlers\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>
