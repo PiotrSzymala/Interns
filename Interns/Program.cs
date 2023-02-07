@@ -1,10 +1,9 @@
-﻿namespace Interns
+﻿namespace Interns;
+
+internal class Program
 {
-    internal class Program
+    static int Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine();
-        }
+        return AppRunner.Run(args);
     }
 }
