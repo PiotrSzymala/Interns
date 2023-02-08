@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace Interns.Controllers;
 
-internal static class FileDownloader
+public static class FileDownloader
 {
     public static string DownloadFile(string url)
     {
