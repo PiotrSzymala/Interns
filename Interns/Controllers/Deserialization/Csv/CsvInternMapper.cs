@@ -15,11 +15,11 @@ internal sealed class CsvInternMapper : ClassMap<Intern>
         Map(m => m.InternshipStart).Name("interns/internshipStart")
             .TypeConverter<CsvHelper.TypeConversion.DateTimeConverter>()
             .TypeConverterOption
-            .Format("yyyy'-'MM'-'dd'T'HH':'mm'+'ss'Z'");
+            .Format(CustomDateTimeConverter.CustomIsoFormat);
 
         Map(m => m.InternshipEnd).Name("interns/internshipEnd")
             .TypeConverter<CsvHelper.TypeConversion.DateTimeConverter>()
             .TypeConverterOption
-            .Format("yyyy'-'MM'-'dd'T'HH':'mm'+'ss'Z'");
+            .Format(CustomDateTimeConverter.CustomIsoFormat);
     }
 }
