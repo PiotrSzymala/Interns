@@ -12,15 +12,18 @@ internal static class AppRunner
     {
         var max = Commands.MaxAge();
         var count = Commands.Count();
+        var order = Commands.Order();
 
 
         max.Handler = CommandHandler.Create<string, IConsole>(MaxAgeCommandHandler.HandleMaxAge);
         count.Handler = CommandHandler.Create<string, int?, int?, IConsole>(CountCommandHandler.HandleCount);
+        order.Handler = CommandHandler.Create<string, bool, IConsole>(OrderCommandHandler.HandleOrder);
 
         var cmd = new RootCommand()
         {
             max,
-            count
+            count,
+            order
         };
 
         var parser = CustomParser.GetParser(cmd);
