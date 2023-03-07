@@ -21,4 +21,13 @@ internal static class Commands
             new Option<int?>("--age-lt", "Find trainees younger than certain age"),
         };
     }
+   
+    public static Command Order()
+    {
+        return new Command("order", "Order trainees ascending (by default) or descending by age")
+        {
+            new Argument<string>("url", "link"),
+            new Option<bool>("--desc","Order by descending")
+        };
+    }
 }
