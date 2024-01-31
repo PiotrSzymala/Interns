@@ -1,6 +1,7 @@
 
 using InternsApi.Services;
 using Microsoft.Extensions.Options;
+using System.Text.Json.Serialization;
 
 namespace InternsApi
 {
@@ -12,11 +13,13 @@ namespace InternsApi
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers().AddJsonOptions(options => 
+                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddScoped<IFileService, FileService>();
+            builder.Services.AddScoped<IDownloadService, DownloadService>();
+            builder.Services.AddScoped<IParseService, ParseService>();
             builder.Services.AddHttpClient("FileClient", client =>
             {
                 client.BaseAddress = new Uri("https://piotrszymala.github.io/Interns/");

@@ -9,11 +9,13 @@ namespace InternsApi.Controllers
     [ApiController]
     public class FileController : ControllerBase
     {
-        private readonly IFileService _fileService;
+        private readonly IDownloadService _fileService;
+        private readonly IParseService _parseService;
 
-        public FileController(IFileService fileService)
+        public FileController(IDownloadService fileService, IParseService parseService)
         {
             _fileService = fileService;
+            _parseService = parseService;
         }
 
         [HttpGet]
@@ -25,6 +27,13 @@ namespace InternsApi.Controllers
                 return UnprocessableEntity(result);
 
             return Ok(result);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> ProcessData([FromBody] FileResponseDto dto)
+        {
+            await _parseService.ParseFile(dto);
+            return Ok(dto);
         }
     }
 }

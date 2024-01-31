@@ -2,11 +2,11 @@
 
 namespace InternsApi.Services
 {
-    public class FileService : IFileService
+    public class DownloadService : IDownloadService
     {
         private readonly HttpClient _client;
 
-        public FileService(IHttpClientFactory clientFactory)
+        public DownloadService(IHttpClientFactory clientFactory)
         {
             _client = clientFactory.CreateClient("FileClient");
         }

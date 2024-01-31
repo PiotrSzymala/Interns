@@ -2,7 +2,7 @@
 
 namespace InternsApi.Services
 {
-    public interface IFileService
+    public interface IDownloadService
     {
         Task<FileResponseDto> GetFileAsync(string url);
     }
