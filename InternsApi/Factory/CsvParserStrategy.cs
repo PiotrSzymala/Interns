@@ -7,19 +7,16 @@ namespace InternsApi.Factory
 {
     public class CsvParserStrategy : IParserStrategy
     {
+        private readonly ICsvService _csvService;
+
+        public CsvParserStrategy(ICsvService csvService)
+        {
+            _csvService = csvService;
+        }
+
         public List<Intern> Parse(string data)
         {
-           InternsRoot result = new InternsRoot();
-            using var reader = new StringReader(data);
-            using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-
-            csv.Context.RegisterClassMap<CsvInternMapper>();
-
-            var records = csv.GetRecords<Intern>().ToList();
-
-            result.Interns = records;
-
-            return result.Interns;
+            return _csvService.ParseFromCsv(data);
         }
     }
 }

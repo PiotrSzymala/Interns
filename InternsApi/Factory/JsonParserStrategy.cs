@@ -1,25 +1,22 @@
 ﻿using InternsApi.Models;
+using InternsApi.Services;
 using Newtonsoft.Json;
 
 namespace InternsApi.Factory
 {
     public class JsonParserStrategy : IParserStrategy
     {
+        private readonly IJsonService _jsonService;
+
+        public JsonParserStrategy(IJsonService jsonService)
+        {
+            _jsonService = jsonService;
+        }
+
         public List<Intern> Parse(string data)
         {
-
-            var settings = new JsonSerializerSettings
-            {
-                DateFormatHandling = DateFormatHandling.IsoDateFormat,
-                DateTimeZoneHandling = DateTimeZoneHandling.Utc
-            };
-
-            var interns = JsonConvert.DeserializeObject<InternsRoot>(data,settings);
-
-            if (interns is null)
-                throw new Exception("Wrong");
-
-            return interns.Interns;
+            return _jsonService.ParseFromJson(data);
         }
+        
     }
 }
