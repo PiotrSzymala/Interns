@@ -1,4 +1,4 @@
-﻿using InternsApi.Services;
+﻿using InternsApi.Services.Parsing;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 

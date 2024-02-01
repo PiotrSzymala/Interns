@@ -1,7 +1,7 @@
 ﻿using InternsApi.Models;
 using Newtonsoft.Json;
 
-namespace InternsApi.Services
+namespace InternsApi.Services.Parsing.Json
 {
     public class JsonService : IJsonService
     {

@@ -1,9 +1,9 @@
 ﻿using CsvHelper;
 using InternsApi.Models;
-using InternsApi.Services;
+using InternsApi.Services.Parsing.Csv;
 using System.Globalization;
 
-namespace InternsApi.Factory
+namespace InternsApi.Factory.Strategies
 {
     public class CsvParserStrategy : IParserStrategy
     {

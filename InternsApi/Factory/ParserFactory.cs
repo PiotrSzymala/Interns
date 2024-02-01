@@ -1,4 +1,5 @@
-﻿using InternsApi.Services;
+﻿using InternsApi.Factory.Strategies;
+using InternsApi.Services;
 
 namespace InternsApi.Factory
 {

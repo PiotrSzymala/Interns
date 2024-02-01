@@ -1,4 +1,4 @@
-﻿namespace InternsApi.Services
+﻿namespace InternsApi.Services.Parsing.Zip
 {
     public interface IZipService
     {

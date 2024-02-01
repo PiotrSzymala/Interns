@@ -1,4 +1,4 @@
-﻿namespace InternsApi.Models;
+﻿namespace InternsApi.Models.DTO;
 
 public record FileResponseDto
 {

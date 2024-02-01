@@ -1,9 +1,10 @@
 ﻿using InternsApi.Models;
 using System.IO.Compression;
 using System.Text;
-using InternsApi.Services;
+using InternsApi.Services.Parsing.Csv;
+using InternsApi.Services.Parsing.Zip;
 
-namespace InternsApi.Factory
+namespace InternsApi.Factory.Strategies
 {
     public class ZipCsvParserStrategy : IParserStrategy
     {
@@ -20,7 +21,7 @@ namespace InternsApi.Factory
         {
             var zipBytes = Convert.FromBase64String(data);
 
-            var unzippedString= _zipService.ParseFromZip(zipBytes);
+            var unzippedString = _zipService.ParseFromZip(zipBytes);
 
             var interns = _csvService.ParseFromCsv(unzippedString);
 

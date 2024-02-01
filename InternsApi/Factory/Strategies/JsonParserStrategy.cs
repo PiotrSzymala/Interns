@@ -1,8 +1,8 @@
 ﻿using InternsApi.Models;
-using InternsApi.Services;
+using InternsApi.Services.Parsing.Json;
 using Newtonsoft.Json;
 
-namespace InternsApi.Factory
+namespace InternsApi.Factory.Strategies
 {
     public class JsonParserStrategy : IParserStrategy
     {
@@ -17,6 +17,6 @@ namespace InternsApi.Factory
         {
             return _jsonService.ParseFromJson(data);
         }
-        
+
     }
 }

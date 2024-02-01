@@ -1,7 +1,7 @@
 ﻿using CsvHelper.Configuration;
 using InternsApi.Models;
 
-namespace InternsApi.Services
+namespace InternsApi.Services.Parsing.Csv
 {
     internal sealed class CsvInternMapper : ClassMap<Intern>
     {

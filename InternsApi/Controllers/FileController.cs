@@ -1,5 +1,7 @@
-﻿using InternsApi.Models;
-using InternsApi.Services;
+﻿using InternsApi.Models.DTO;
+using InternsApi.Models.Enum;
+using InternsApi.Services.Download;
+using InternsApi.Services.Parsing;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

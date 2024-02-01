@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Converters;
 using System.Runtime.Serialization;
 
-namespace InternsApi.Services
+namespace InternsApi.Services.Parsing
 {
     public class CustomDateTimeConverter : IsoDateTimeConverter
     {

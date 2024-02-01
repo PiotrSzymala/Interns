@@ -2,7 +2,7 @@
 using InternsApi.Models;
 using System.Globalization;
 
-namespace InternsApi.Services
+namespace InternsApi.Services.Parsing.Csv
 {
     public class CsvService : ICsvService
     {

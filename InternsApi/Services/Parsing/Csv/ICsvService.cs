@@ -1,6 +1,6 @@
 ﻿using InternsApi.Models;
 
-namespace InternsApi.Services
+namespace InternsApi.Services.Parsing.Csv
 {
     public interface ICsvService
     {

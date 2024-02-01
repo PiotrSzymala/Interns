@@ -1,6 +1,11 @@
 
 using InternsApi.Factory;
-using InternsApi.Services;
+using InternsApi.Factory.Strategies;
+using InternsApi.Services.Download;
+using InternsApi.Services.Parsing;
+using InternsApi.Services.Parsing.Csv;
+using InternsApi.Services.Parsing.Json;
+using InternsApi.Services.Parsing.Zip;
 using Microsoft.Extensions.Options;
 using System.Text.Json.Serialization;
 

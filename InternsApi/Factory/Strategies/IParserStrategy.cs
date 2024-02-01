@@ -1,6 +1,6 @@
 ﻿using InternsApi.Models;
 
-namespace InternsApi.Factory
+namespace InternsApi.Factory.Strategies
 {
     public interface IParserStrategy
     {

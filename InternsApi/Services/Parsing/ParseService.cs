@@ -1,7 +1,7 @@
 ﻿using InternsApi.Factory;
-using InternsApi.Models;
+using InternsApi.Models.DTO;
 
-namespace InternsApi.Services
+namespace InternsApi.Services.Parsing
 {
     public class ParseService : IParseService
     {

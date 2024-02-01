@@ -1,7 +1,7 @@
 ﻿using System.IO.Compression;
 using System.Text;
 
-namespace InternsApi.Services
+namespace InternsApi.Services.Parsing.Zip
 {
     public class ZipService : IZipService
     {
