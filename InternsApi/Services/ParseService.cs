@@ -5,12 +5,17 @@ namespace InternsApi.Services
 {
     public class ParseService : IParseService
     {
+        private readonly ParserFactory _parserFactory;
+
+        public ParseService(ParserFactory parserFactory)
+        {
+            _parserFactory = parserFactory;
+        }
 
         public async Task ParseFile(FileResponseDto dto)
         {
-            var parserFactory = new ParserFactory();
 
-            var parser = parserFactory.CreateParser(dto.ResponseType);
+            var parser = _parserFactory.CreateParser(dto.ResponseType);
 
             var interns = parser.Parse(dto.Response);
 

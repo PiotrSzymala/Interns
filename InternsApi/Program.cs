@@ -1,4 +1,5 @@
 
+using InternsApi.Factory;
 using InternsApi.Services;
 using Microsoft.Extensions.Options;
 using System.Text.Json.Serialization;
@@ -18,8 +19,21 @@ namespace InternsApi
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddSingleton<IServiceProvider, ServiceProvider>();
             builder.Services.AddScoped<IDownloadService, DownloadService>();
             builder.Services.AddScoped<IParseService, ParseService>();
+
+            builder.Services.AddScoped<JsonParserStrategy>();
+            builder.Services.AddScoped<CsvParserStrategy>();
+            builder.Services.AddScoped<ZipCsvParserStrategy>();
+
+            builder.Services.AddScoped<IJsonService, JsonService>();
+            builder.Services.AddScoped<ICsvService, CsvService>();
+            builder.Services.AddScoped<IZipService, ZipService>();
+
+            builder.Services.AddScoped<ParserFactory>();
+
             builder.Services.AddHttpClient("FileClient", client =>
             {
                 client.BaseAddress = new Uri("https://piotrszymala.github.io/Interns/");
