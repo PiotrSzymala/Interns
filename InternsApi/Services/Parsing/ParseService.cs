@@ -1,4 +1,5 @@
 ﻿using InternsApi.Factory;
+using InternsApi.Models;
 using InternsApi.Models.DTO;
 
 namespace InternsApi.Services.Parsing
@@ -12,13 +13,14 @@ namespace InternsApi.Services.Parsing
             _parserFactory = parserFactory;
         }
 
-        public async Task ParseFile(FileResponseDto dto)
+        public async Task<List<Intern>> ParseFile(FileResponseDto dto)
         {
 
             var parser = _parserFactory.CreateParser(dto.ResponseType);
 
             var interns = parser.Parse(dto.Response);
 
+            return interns;
         }
     }
 }

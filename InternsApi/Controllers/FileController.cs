@@ -34,8 +34,8 @@ namespace InternsApi.Controllers
         [HttpPost]
         public async Task<ActionResult> ProcessData([FromBody] FileResponseDto dto)
         {
-            await _parseService.ParseFile(dto);
-            return Ok(dto);
+            var result =  await _parseService.ParseFile(dto);
+            return Ok(result);
         }
     }
 }

@@ -1,9 +1,10 @@
-﻿using InternsApi.Models.DTO;
+﻿using InternsApi.Models;
+using InternsApi.Models.DTO;
 
 namespace InternsApi.Services.Parsing
 {
     public interface IParseService
     {
-        Task ParseFile(FileResponseDto dto);
+        Task<List<Intern>> ParseFile(FileResponseDto dto);
     }
 }
