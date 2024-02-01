@@ -1,5 +1,5 @@
 using FluentAssertions;
-using Interns.Controllers;
+using Interns.Application.Controllers;
 
 namespace Interns.Tests;
 
@@ -9,13 +9,13 @@ public class FileDownloaderUnitTests
     [InlineData("https://fortedigital.github.io/Back-End-Internship-Task/interns.json")]
     [InlineData("https://fortedigital.github.io/Back-End-Internship-Task/interns.csv")]
     [InlineData("https://fortedigital.github.io/Back-End-Internship-Task/interns.zip")]
-    public void FileDownloader_ForValidInputArgument(string url)
+    public async Task FileDownloader_ForValidInputArgument(string url)
     {
         // act
-        var result = FileDownloader.DownloadFile(url);
+        var result = await FileDownloader.DownloadFile(url);
 
         // assert 
-        result.Should().NotBeEmpty("because with valid input argument downloading should end successfully");
+        result.Response.Should().NotBeEmpty("because with valid input argument downloading should end successfully");
 
     }
 
@@ -23,12 +23,12 @@ public class FileDownloaderUnitTests
     [InlineData("https://fortedigital.github.io/Back-End-Internship-Task/interns.js")]
     [InlineData("https://fortedigital.github.io/Back-End-Internship-Task/interns.cv")]
     [InlineData("https://fortedigital.github.io/Back-End-Internship-Task/interns.zi")]
-    public void FileDownloader_ForInvalidInputArgument(string url)
+    public async Task FileDownloader_ForInvalidInputArgument(string url)
     {
         // act
-        var result = FileDownloader.DownloadFile(url);
+        var result = await FileDownloader.DownloadFile(url);
 
         // assert
-        result.Should().BeEmpty();
+        result.Response.Should().BeEmpty();
     }
 }

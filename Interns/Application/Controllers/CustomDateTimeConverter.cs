@@ -1,6 +1,6 @@
 using Newtonsoft.Json.Converters;
 
-namespace Interns.Controllers;
+namespace Interns.Application.Controllers;
 
 internal class CustomDateTimeConverter : IsoDateTimeConverter
 {
@@ -8,6 +8,6 @@ internal class CustomDateTimeConverter : IsoDateTimeConverter
     public CustomDateTimeConverter()
     {
         //2021-07-01T00:00+00Z
-        base.DateTimeFormat = CustomIsoFormat;
+        DateTimeFormat = CustomIsoFormat;
     }
 }

@@ -1,19 +1,22 @@
 using System.CommandLine;
 using System.CommandLine.IO;
-using Interns.Controllers;
-using Interns.Controllers.Deserialization;
-using Interns.Models;
+using Interns.Application.Controllers;
+using Interns.Application.Controllers.Deserialization;
 
-namespace Interns.Handlers;
+namespace Interns.Application.Handlers;
 
 internal static class OrderCommandHandler
 {
-    public static void HandleOrder(string url, bool desc, IConsole console)
+    public static async Task HandleOrder(string url, bool desc, IConsole console)
     {
-        var data = FileDownloader.DownloadFile(url);
-        if (string.IsNullOrEmpty(data)) return;
+        var data = await FileDownloader.DownloadFile(url);
 
-        var fileDeserializer = DeserializationPicker.ChoseDeserializer(url, data);
+        if (string.IsNullOrEmpty(data.Response)) return;
+
+        ParserFactory parserFactory = new ParserFactory();
+        parserFactory.CreateParser()
+
+        var fileDeserializer = DeserializationPicker.ChoseDeserializer(url, data.Response);
         var rootObject = fileDeserializer.Deserialize();
 
         if (rootObject.Interns != null)

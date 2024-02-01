@@ -1,8 +1,8 @@
 using Newtonsoft.Json;
 
-namespace Interns.Models;
+namespace Interns.Application.Models;
 
-internal class RootObject
+public class InternsResponse
 {
     [JsonProperty("interns")]
     public List<Intern>? Interns { get; set; }

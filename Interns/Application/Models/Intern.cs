@@ -1,9 +1,9 @@
-using Interns.Controllers;
+using Interns.Application.Controllers;
 using Newtonsoft.Json;
 
-namespace Interns.Models;
+namespace Interns.Application.Models;
 
-internal class Intern
+public class Intern
 {
 
     [JsonProperty("id")]

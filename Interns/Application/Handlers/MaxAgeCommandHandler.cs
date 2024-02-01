@@ -1,19 +1,19 @@
 using System.CommandLine;
 using System.CommandLine.IO;
-using Interns.Controllers;
-using Interns.Controllers.Deserialization;
+using Interns.Application.Controllers;
+using Interns.Application.Controllers.Deserialization;
 
-namespace Interns.Handlers;
+namespace Interns.Application.Handlers;
 
 internal static class MaxAgeCommandHandler
 {
-    public static void HandleMaxAge(string url, IConsole console)
+    public static async Task HandleMaxAge(string url, IConsole console)
     {
-        var data = FileDownloader.DownloadFile(url);
+        var data = await FileDownloader.DownloadFile(url);
 
-        if (string.IsNullOrEmpty(data)) return;
+        if (string.IsNullOrEmpty(data.Response)) return;
 
-        var fileDeserializer = DeserializationPicker.ChoseDeserializer(url, data);
+        var fileDeserializer = DeserializationPicker.ChoseDeserializer(url, data.Response);
 
         var rootObject = fileDeserializer.Deserialize();
 

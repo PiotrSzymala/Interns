@@ -15,10 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\Deserialization\Csv\" />
-    <Folder Include="Controllers\Deserialization\Json\" />
-    <Folder Include="Handlers\" />
-    <Folder Include="Models\" />
+    <Folder Include="Application\Services\" />
+    <Folder Include="Application\Handlers\" />
+    <Folder Include="Application\Models\" />
   </ItemGroup>
 
 </Project>

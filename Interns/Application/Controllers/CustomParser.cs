@@ -3,7 +3,7 @@ using System.CommandLine.Builder;
 using System.CommandLine.Help;
 using System.CommandLine.Parsing;
 
-namespace Interns.Controllers;
+namespace Interns.Application.Controllers;
 
 internal static class CustomParser
 {

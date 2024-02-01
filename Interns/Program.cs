@@ -1,9 +1,12 @@
-﻿namespace Interns;
+﻿using Interns.Application.Controllers;
+
+namespace Interns;
 
 internal class Program
 {
-    static int Main(string[] args)
+    static async Task<int> Main(string[] args)
     {
-        return AppRunner.Run(args);
+        var test = await FileDownloader.DownloadFile("https://piotrszymala.github.io/Interns/interns.zip");
+        return await AppRunner.Run(args);
     }
 }

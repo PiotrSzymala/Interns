@@ -1,20 +1,20 @@
 using System.CommandLine;
 using System.CommandLine.IO;
-using Interns.Controllers;
-using Interns.Controllers.Deserialization;
-using Interns.Models;
+using Interns.Application.Controllers;
+using Interns.Application.Controllers.Deserialization;
+using Interns.Application.Models;
 
-namespace Interns.Handlers;
+namespace Interns.Application.Handlers;
 
 internal static class CountCommandHandler
 {
-    public static void HandleCount(string url, int? ageGt, int? ageLt, IConsole console)
+    public static async Task HandleCount(string url, int? ageGt, int? ageLt, IConsole console)
     {
-        var data = FileDownloader.DownloadFile(url);
+        var data = await FileDownloader.DownloadFile(url);
 
-        if (string.IsNullOrEmpty(data)) return;
+        if (string.IsNullOrEmpty(data.Response)) return;
 
-        var fileDeserializer = DeserializationPicker.ChoseDeserializer(url, data);
+        var fileDeserializer = DeserializationPicker.ChoseDeserializer(url, data.Response);
 
         var rootObject = fileDeserializer.Deserialize();
 
@@ -31,7 +31,7 @@ internal static class CountCommandHandler
         }
     }
 
-    private static int Count(int? ageGt, int? ageLt, RootObject rootObject)
+    private static int Count(int? ageGt, int? ageLt, InternsResponse rootObject)
     {
         int count;
         if (ageGt != null)

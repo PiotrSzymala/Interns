@@ -1,7 +1,8 @@
 using CsvHelper.Configuration;
-using Interns.Models;
+using Interns.Application.Controllers;
+using Interns.Application.Models;
 
-namespace Interns.Controllers.Deserialization.Csv;
+namespace Interns.Application.Controllers.Deserialization.Csv;
 
 internal sealed class CsvInternMapper : ClassMap<Intern>
 {

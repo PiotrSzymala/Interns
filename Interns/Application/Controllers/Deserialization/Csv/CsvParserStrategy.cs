@@ -1,14 +1,15 @@
 using System.Globalization;
 using CsvHelper;
-using Interns.Models;
+using Interns.Application.Controllers.Deserialization;
+using Interns.Application.Models;
 
-namespace Interns.Controllers.Deserialization.Csv;
+namespace Interns.Application.Controllers.Deserialization.Csv;
 
-internal class CsvDeserializer : IFileTypeDistincter
+internal class CsvParserStrategy : IParserStrategy
 {
-    public RootObject Deserialize(string input)
+    public List<Intern> Parse(string input)
     {
-        RootObject result = new RootObject();
+        InternsResponse result = new InternsResponse();
 
         using var reader = new StringReader(input);
         using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
@@ -19,6 +20,6 @@ internal class CsvDeserializer : IFileTypeDistincter
 
         result.Interns = records;
 
-        return result;
+        return result.Interns;
     }
 }
